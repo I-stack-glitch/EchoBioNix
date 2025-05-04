@@ -13,7 +13,8 @@ const TeamSection: React.FC = () => {
     {
       name: 'Mohammed Anas',
       role: 'Software, Code Logic and Sensor Engineering',
-      imgUrl: 'https://i.postimg.cc/65PswYRn/Reshot.jpg'
+      imgUrl: 'https://i.postimg.cc/65PswYRn/Reshot.jpg',
+      link: 'https://mohammedanasportfolio.netlify.app/'  // Placeholder for the URL for Mohammed Anas
     },
     {
       name: 'Sayed Muhammed Anas',
@@ -42,6 +43,7 @@ const TeamSection: React.FC = () => {
                 name={member.name}
                 role={member.role}
                 imgUrl={member.imgUrl}
+                profileUrl={member.link}  // Passing the link for the profile
               />
             ))}
           </div>

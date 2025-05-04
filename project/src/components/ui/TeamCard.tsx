@@ -5,16 +5,26 @@ interface TeamCardProps {
   name: string;
   role: string;
   imgUrl?: string;
+  profileUrl?: string;
+  onClick?: () => void;  // onClick handler to handle click action
 }
 
-const TeamCard: React.FC<TeamCardProps> = ({ name, role, imgUrl }) => {
+const TeamCard: React.FC<TeamCardProps> = ({ name, role, imgUrl, profileUrl, onClick }) => {
   return (
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="bento-card p-6 flex flex-col items-center text-center"
+      className="bento-card p-6 flex flex-col items-center text-center cursor-pointer"
+      onClick={() => {
+        if (profileUrl) {
+          window.open(profileUrl, '_blank');  // Open the profile URL in a new tab
+        }
+        if (onClick) {
+          onClick();  // Execute any additional onClick actions
+        }
+      }}  // Triggers onClick if profileUrl exists
     >
       <div className="w-32 h-32 rounded-full bg-gradient-to-r from-primary to-accent p-1 mb-4">
         <div className="w-full h-full rounded-full overflow-hidden bg-dark flex items-center justify-center">
